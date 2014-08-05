@@ -15,6 +15,7 @@ myapp.controller('myctrl', function ($scope) {
     {"id": "scatter", "title": "Scatter"}
   ];
 
+
   $scope.dashStyles = [
     {"id": "Solid", "title": "Solid"},
     {"id": "ShortDash", "title": "ShortDash"},
@@ -30,7 +31,7 @@ myapp.controller('myctrl', function ($scope) {
   ];
 
   $scope.chartSeries = [
-    {"name": "TMY3 Temperature", "data": [1, 2, 4, 7, 3,9,20], type: "line"},
+    {"name": "TMY3 Temperature", "data": [1, 2, 4, 7, 3,9,20,45], type: "line"},
     {"name": "Baseline",  data: [{
         name: 'Point 1',
         color: '#FC9005',
