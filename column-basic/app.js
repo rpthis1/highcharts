@@ -1,8 +1,8 @@
 'use strict';
 
-var myapp = angular.module('myapp', ["highcharts-ng"]);
+var myapp = angular.module('myapp', ["highcharts-ng", "guthub.services"]);
 
-myapp.controller('myctrl', function ($scope) {
+myapp.controller('myctrl',['$scope', 'ReportService', function ($scope, ReportService) {
 
     $scope.chartTypes = [
         {"id": "line", "title": "Line"},
@@ -30,203 +30,230 @@ myapp.controller('myctrl', function ($scope) {
         {"id": "LongDashDotDot", "title": "LongDashDotDot"}
     ];
 
-    $scope.chartSeries = [
+    $scope.loadRemoteData = function () {
 
-
-        {"name": "Baseline",    data: [{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 313706
-
-        }, {
-            name: 'Point 2',
-            color: '#CCCCCC',
-            y: 282847
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 313052
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 338867
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 313805
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 304192
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 312409
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 315329
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 304637
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 313686
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 294925
-
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 314557
-
-        }]  , type: "column"},
-
-
-
-
-
-
-        {"name": "Normalized",   data: [{
-            name: 'Point 1',
-            color: '#FC9005',
-            y: 319476
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 291352
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 323337
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 349617
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 330704
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 317561
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 331921
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 331877
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 320829
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 330749
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 314271
-        }, {
-            name: 'Point 2',
-            color: '#FC9005',
-            y: 321391,
-            yAxis: 2
-        }],
-            type: "column"
-        },
-
-
-
-
-
-
-        {"name": "TMY3 Temperature",  yAxis :1 , xAxis :1,   data: [{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 50,
-            yAxis: 2
-        }, {
-            name: 'Point 2',
-            color: '#CCCCCC',
-            y: 52
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 54
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 55
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 60
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 78
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 56
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 65
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 78
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 81
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 82
-        },{
-            name: 'Point 5',
-            color: '#CCCCCC',
-            y: 83
-        },
-            ,{
-                name: 'Point 5',
-                color: '#CCCCCC',
-                y: 99
+        // The friendService returns a promise.
+        ReportService.getReport()
+            .then(
+            function( friends ) {
+                $scope.reset(friends);
+                console.log( friends );
             }
-            ,{
-                name: 'Point 5',
-                color: '#CCCCCC',
-                y: 100
-            }
-            ,{
-                name: 'Point 5',
-                color: '#CCCCCC',
-                y: 101
-            }] , type: "line"}
+        )
+        ;
+
+    }
+
+    $scope.reset = function (data) {
+        $scope.chartConfig.series =  data;
+    }
 
 
 
+    $scope.loadRemoteData();
 
 
-    ];
+
+//
+//    $scope.chartSeries = [
+//
+//
+//        {"name": "Baseline",    data: [{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 313706
+//
+//        }, {
+//            name: 'Point 2',
+//            color: '#CCCCCC',
+//            y: 282847
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 313052
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 338867
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 313805
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 304192
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 312409
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 315329
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 304637
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 313686
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 294925
+//
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 314557
+//
+//        }]  , type: "column"},
+//
+//
+//
+//
+//
+//
+//        {"name": "Normalized",   data: [{
+//            name: 'Point 1',
+//            color: '#FC9005',
+//            y: 319476
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 291352
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 323337
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 349617
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 330704
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 317561
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 331921
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 331877
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 320829
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 330749
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 314271
+//        }, {
+//            name: 'Point 2',
+//            color: '#FC9005',
+//            y: 321391,
+//            yAxis: 2
+//        }],
+//            type: "column"
+//        },
+//
+//
+//
+//
+//
+//
+//
+//
+//        {"name": "TMY3 Temperature",  yAxis :1 ,   data: [{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 50,
+//            yAxis: 2
+//        }, {
+//            name: 'Point 2',
+//            color: '#CCCCCC',
+//            y: 52
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 54
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 55
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 60
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 78
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 56
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 65
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 78
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 81
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 82
+//        },{
+//            name: 'Point 5',
+//            color: '#CCCCCC',
+//            y: 83
+//        }
+//            ,{
+//                name: 'Point 5',
+//                color: '#CCCCCC',
+//                y: 99
+//            }
+//            ,{
+//                name: 'Point 5',
+//                color: '#CCCCCC',
+//                y: 100
+//            }
+//            ,{
+//                name: 'Point 5',
+//                color: '#CCCCCC',
+//                y: 101
+//            }] , type: "line"}
+//
+//
+//
+//
+//
+//    ];
 
     $scope.chartStack = [
         {"id": '', "title": "No"},
@@ -304,19 +331,16 @@ myapp.controller('myctrl', function ($scope) {
 
                 },
                 labels: {
-                    format: '{value} °F'
+                    format: '{value}F'
 
                 },
                 opposite: true
 
             }],
 
-
-
-
-
-
-
+            legend: {
+                enabled: false
+            },
 
             plotOptions: {
                 series: {
@@ -340,4 +364,4 @@ myapp.controller('myctrl', function ($scope) {
     };
 
 
-});
+}]);
