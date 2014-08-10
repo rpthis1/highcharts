@@ -1,8 +1,35 @@
 'use strict';
 
-var myapp = angular.module('myapp', ["highcharts-ng", "guthub.services"]);
+var myapp = angular.module('myapp', ["highcharts-ng", "guthub.services", "mgcrea.ngStrap"]);
 
-myapp.controller('myctrl',['$scope', 'ReportService', function ($scope, ReportService) {
+myapp.controller('myctrl',['$scope','$window', 'ReportService', function ($scope, $window, ReportService) {
+
+
+    $scope.dropdown = [
+        {
+            "text": "<i class=\"fa fa-download\"></i>Another action",
+            "href": "#anotherAction"
+        },
+        {
+            "text": "<i class=\"fa fa-globe\"></i>Display an alert",
+            "click": "$alert(\"Holy guacamole!\")"
+        },
+        {
+            "text": "<i class=\"fa fa-external-link\"></i>External link",
+            "href": "/auth/facebook",
+            "target": "_self"
+        },
+        {
+            "divider": true
+        },
+        {
+            "text": "Separated link",
+            "href": "#separatedLink"
+        }
+    ];
+
+
+
 
     $scope.chartTypes = [
         {"id": "line", "title": "Line"},
@@ -52,7 +79,23 @@ myapp.controller('myctrl',['$scope', 'ReportService', function ($scope, ReportSe
 
     $scope.loadRemoteData();
 
+    $scope.chartSeries = [
 
+        {"name": "TMY3 Temperature",     data: [50,60,80], type: "line", yAxis: 1 },
+
+
+
+        {"name": "Baseline",    data: [6,7,8]  , type: "column"},
+
+
+
+
+
+
+        {"name": "Normalized",   data: [3,4,5],
+            type: "column"
+        }
+    ];
 
 //
 //    $scope.chartSeries = [
@@ -304,7 +347,7 @@ myapp.controller('myctrl',['$scope', 'ReportService', function ($scope, ReportSe
     $scope.chartConfig = {
         options: {
             chart: {
-
+                height:$window.innerHeight -300
             },
             xAxis: [{
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -343,6 +386,7 @@ myapp.controller('myctrl',['$scope', 'ReportService', function ($scope, ReportSe
             },
 
             plotOptions: {
+                height:'100%',
                 series: {
                     stacking: ''
                 }
@@ -360,8 +404,26 @@ myapp.controller('myctrl',['$scope', 'ReportService', function ($scope, ReportSe
     }
 
     $scope.reflow = function () {
+
+        console.log("resized");
         $scope.$broadcast('highchartsng.reflow');
     };
 
 
 }]);
+
+myapp.directive('resizable', function($window) {
+    return function($scope) {
+        $scope.initializeWindowSize = function() {
+
+            $scope.chartConfig.options.chart.height =  $window.innerHeight - 300;
+           // $scope.windowHeight = $window.innerHeight;
+           // $scope.windowWidth  = $window.innerWidth;
+        };
+        angular.element($window).bind("resize", function() {
+            $scope.initializeWindowSize();
+            $scope.$apply();
+        });
+        $scope.initializeWindowSize();
+    }
+});

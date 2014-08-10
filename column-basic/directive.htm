@@ -1,0 +1,28 @@
+<html ng-app="app">
+<head>
+    <script src="http://code.angularjs.org/1.2.3/angular.min.js"></script>
+</head>
+<body resizable>
+width: {{ windowWidth }}px
+<br />
+height: {{ windowHeight }}px
+
+<script>
+    var App = angular.module("app", []);
+
+    App.directive('resizable', function($window) {
+        return function($scope) {
+            $scope.initializeWindowSize = function() {
+                $scope.windowHeight = $window.innerHeight;
+                $scope.windowWidth  = $window.innerWidth;
+            };
+            angular.element($window).bind("resize", function() {
+                $scope.initializeWindowSize();
+                $scope.$apply();
+            });
+            $scope.initializeWindowSize();
+        }
+    });
+</script>
+</body>
+</html>
