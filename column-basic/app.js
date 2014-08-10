@@ -1,21 +1,43 @@
 'use strict';
 
-var myapp = angular.module('myapp', ["highcharts-ng", "guthub.services", "mgcrea.ngStrap"]);
+var myapp = angular.module('myapp', ["highcharts-ng", "guthub.services", "mgcrea.ngStrap", "ngAnimate"]);
 
-myapp.controller('myctrl',['$scope','$window', 'ReportService', function ($scope, $window, ReportService) {
 
+
+
+myapp.config(function($modalProvider) {
+    angular.extend($modalProvider.defaults, {
+        html: true
+    });
+})
+
+
+myapp.config(function($dropdownProvider) {
+        angular.extend($dropdownProvider.defaults, {
+            animation: 'am-flip-x',
+            html:true
+        });
+    })
+
+myapp.controller('myctrl',['$scope','$window', 'ReportService', "$sce", function ($scope, $window, ReportService, $sce) {
+
+
+    $scope.modal = {
+        "title": "Title",
+        "content": "Hello Modal<br />This is a multiline message!"
+    };
 
     $scope.dropdown = [
         {
-            "text": "<i class=\"fa fa-download\"></i>Another action",
+            "text":$sce.trustAsHtml("<button type='button'>a</button>"),
             "href": "#anotherAction"
         },
         {
-            "text": "<i class=\"fa fa-globe\"></i>Display an alert",
+            "text": $sce.trustAsHtml("<i class=\"fa fa-globe\"></i>&nbsp;Display an alert"),
             "click": "$alert(\"Holy guacamole!\")"
         },
         {
-            "text": "<i class=\"fa fa-external-link\"></i>External link",
+            "text": $sce.trustAsHtml("<i class=\"fa fa-external-link\"></i>&nbsp;External link"),
             "href": "/auth/facebook",
             "target": "_self"
         },
@@ -23,7 +45,7 @@ myapp.controller('myctrl',['$scope','$window', 'ReportService', function ($scope
             "divider": true
         },
         {
-            "text": "Separated link",
+            "text": $sce.trustAsHtml("Separated link"),
             "href": "#separatedLink"
         }
     ];
