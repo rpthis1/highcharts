@@ -6,6 +6,7 @@
     <link href="css/bootstrap3.2/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap3.2/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/angularMotion/angular-motion.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
@@ -55,25 +56,26 @@
 <div class="container-fluid" ng-controller="myctrl">
 
 
-    <div class="panel panel-default" style="height:100%">
+    <div class="panel panel-default" style="background-color: rgba(255,255,255,0)">
         <div class="panel-heading">
 
-            <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" bs-select data-animation="am-flip-x">
+            <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1"
+                    ng-options="icon.value as icon.label for icon in icons" bs-select data-animation="am-flip-x">
                 Action <span class="caret"></span>
             </button>
             <!--<button type="button" class="btn btn-lg btn-primary" data-animation="am-flip-x" bs-dropdown="dropdown"> New-->
-                <!--Boiler (2/1/14 - 412/14)-->
+            <!--Boiler (2/1/14 - 412/14)-->
             <!--</button>-->
 
             <!--<button type="button" class="btn btn-lg btn-primary" data-animation="am-fade-and-scale"-->
-                    <!--data-placement="center" bs-modal="modal">Click to toggle modal-->
-                <!--<br>-->
-                <!--<small>(using an object)</small>-->
+            <!--data-placement="center" bs-modal="modal">Click to toggle modal-->
+            <!--<br>-->
+            <!--<small>(using an object)</small>-->
             <!--</button>-->
 
             <!--<button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside-->
-                <!--<br>-->
-                <!--<small>(using an object)</small>-->
+            <!--<br>-->
+            <!--<small>(using an object)</small>-->
             <!--</button>-->
 
 
@@ -96,30 +98,80 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>Baseline</th>
-                            <th>Reporting</th>
-                            <th>Delta</th>
-                            <th>%</th>
+                            <th class="text-center">Jan</th>
+                            <th>Feb</th>
+                            <th>Mar</th>
+                            <th>Apr</th>
+                            <th>May</th>
+                            <th>Jun</th>
+                            <th>Jul</th>
+                            <th>Aug</th>
+                            <th>Sep</th>
+                            <th>Oct</th>
+                            <th>Nov</th>
+                            <th>Dec</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Baseline</td>
-                            <td>John</td>
-                            <td>Carter</td>
-                            <td>johncarter@mail.com</td>
+                        <tr style=" line-height: 25px;min-height: 25px;height: 25px;">
+                            <td>Baseline (kWh)</td>
+                            <td class="text-center">100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
                         </tr>
                         <tr>
-                            <td>Reporting</td>
-                            <td>Peter</td>
-                            <td>Parker</td>
-                            <td>peterparker@mail.com</td>
+                            <td>Reporting (kWH)</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
                         </tr>
                         <tr>
-                            <td>Delta</td>
-                            <td>John</td>
-                            <td>Rambo</td>
-                            <td>johnrambo@mail.com</td>
+                            <td>Delta (kWh)</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                            <td>100,433</td>
+                            <td>434,323</td>
+                            <td>453,343</td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>45%</td>
+                            <td>434%</td>
+                            <td>45%</td>
+                            <td>10%</td>
+                            <td>56%</td>
+                            <td>45%</td>
+                            <td>100%</td>
+                            <td>434%</td>
+                            <td>453%</td>
+                            <td>100%</td>
+                            <td>434%</td>
+                            <td>453%</td>
                         </tr>
                         </tbody>
                     </table>

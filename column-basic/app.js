@@ -137,7 +137,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         {"name": "Baseline", data: [
             {
                 name: 'Point 5',
-                color: '#CCCCCC',
+                color: 'rgba(255, 255, 255, 0.5)',
                 y: 313706,
                 events: {click: function () {
                     console.log("column click drill")
@@ -214,7 +214,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         {"name": "Normalized", data: [
             {
                 name: 'Point 1',
-                color: '#FC9005',
+                color: 'rgba(252,144,5,0.5)',
                 y: 319476
             },
             {
@@ -412,9 +412,9 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
     $scope.chartConfig = {
         options: {
             chart: {
-
+                backgroundColor:null,
                 margin: 75,
-                height: $window.innerHeight - 310,
+                height: $window.innerHeight,
                 options3d: {
                     enabled: true,
                     alpha: 15,
@@ -504,7 +504,7 @@ myapp.directive('resizable', function ($window) {
     return function ($scope) {
         $scope.initializeWindowSize = function () {
 
-            $scope.chartConfig.options.chart.height = $window.innerHeight - 310;
+            $scope.chartConfig.options.chart.height = $window.innerHeight - 350;
             // $scope.windowHeight = $window.innerHeight;
             // $scope.windowWidth  = $window.innerWidth;
         };
