@@ -1,55 +1,32 @@
-/**
- * Created by me on 8/8/2014.
- */
+(function () {
 
-var app = angular.module("guthub.services",[]);
-app.service(
-    "ReportService",
-    function ($http, $q) {
 
-        // Return public API.
+    function ReportService($http, $q) {
+
         return({
             getReport: getReport,
-            getFriends: getFriends,
+            getSelections: getSelections,
             removeFriend: removeFriend
         });
 
 
-        // ---
-        // PUBLIC METHODS.
-        // ---
-
-
-        // I add a friend with the given name to the remote collection.
         function getReport() {
-
             var request = $http({
                 method: "post",
                 url: "http://localhost:3000"
             });
-
             return( request.then(handleSuccess, handleError) );
-
         }
 
-
-        // I get all of the friends in the remote collection.
-        function getFriends() {
-
+        function getSelections() {
             var request = $http({
-                method: "get",
-                url: "api/index.cfm",
-                params: {
-                    action: "get"
-                }
+                method: "post",
+                url: "http://localhost:3000/api/selections"
             });
-
             return( request.then(handleSuccess, handleError) );
 
         }
 
-
-        // I remove the friend with the given ID from the remote collection.
         function removeFriend(id) {
 
             var request = $http({
@@ -100,8 +77,14 @@ app.service(
         function handleSuccess(response) {
 
             return( response.data );
-
         }
+    };
 
-    }
-);
+    var app = angular.module("guthub.services", []);
+    ReportService.$inject = ["$http", "$q"];
+    app.service("ReportService", ReportService);
+
+
+}());
+
+

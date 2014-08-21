@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="myapp">
+<html  ng-app="myapp">
 <head>
 
 
@@ -53,36 +53,19 @@
 
 </head>
 <body>
-<div class="container-fluid" ng-controller="myctrl">
+<div class="container-fluid"  ng-controller="myctrl">
 
 
-    <div class="panel panel-default, chartBack">
+    <div class="panel panel-default">
         <div class="panel-heading">
-
             <button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1"
                     ng-options="icon.value as icon.label for icon in icons" bs-select data-animation="am-flip-x">
                 Action <span class="caret"></span>
             </button>
-            <!--<button type="button" class="btn btn-lg btn-primary" data-animation="am-flip-x" bs-dropdown="dropdown"> New-->
-            <!--Boiler (2/1/14 - 412/14)-->
-            <!--</button>-->
-
-            <!--<button type="button" class="btn btn-lg btn-primary" data-animation="am-fade-and-scale"-->
-            <!--data-placement="center" bs-modal="modal">Click to toggle modal-->
-            <!--<br>-->
-            <!--<small>(using an object)</small>-->
-            <!--</button>-->
-
-            <!--<button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside-->
-            <!--<br>-->
-            <!--<small>(using an object)</small>-->
-            <!--</button>-->
-
-
         </div>
-        <div resizable>
-            <highchart id="chart1" config="chartConfig"></highchart>
-        </div>
+    </div>
+    <div resizable>
+        <highchart id="chart1" config="chartConfig"></highchart>
     </div>
 
 
@@ -90,7 +73,6 @@
         <div class="panel-heading">
             <h1 class="panel-title">TMY3 Year</h1>
         </div>
-
         <div class="widget-body medium no-padding">
             <div class="table-responsive">
                 <div class="bs-example">
@@ -181,6 +163,8 @@
 
 
     </div>
+
+
 
 
 </div>
