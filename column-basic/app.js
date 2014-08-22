@@ -27,12 +27,10 @@ myapp.config(function ($asideProvider) {
 myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", function ($scope, $window, ReportService, $sce) {
 
 
+    $scope.selectChange = function () {
+        loadRemoteData($scope.selectedItem)
 
-   $scope.selectChange  = function ()
-   {
-       console.log( $scope.selectedIcon);
-   }
-
+    }
 
 
     $scope.aside = {
@@ -62,8 +60,8 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         )
     }
 
-    function loadRemoteData() {
-        ReportService.getReport()
+    function loadRemoteData(data) {
+        ReportService.getReport(data)
             .then(
             function (report) {
                 resetData(report);
@@ -91,20 +89,18 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
 //       }
 
         var dropDown = [];
-        var obj;
+
         angular.forEach(selections, function (selection) {
-            obj = {};
-            obj.value = selection.label;
-            obj.label = $sce.trustAsHtml(selection.label);
-            dropDown.push(obj);
+            selection.label = $sce.trustAsHtml(selection.label);
+            dropDown.push(selection);
 
             if (selection.default) {
-                $scope.selectedIcon = obj;
+                $scope.selectedItem = selection;
             }
         })
         $scope.icons = dropDown;
 
-        loadRemoteData();
+        loadRemoteData($scope.selectedItem);
     }
 
 
@@ -164,7 +160,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
                     enabled: true,
                     alpha: 15,
                     beta: 0,
-                    depth:50,
+                    depth: 50,
                     viewDistance: 50
                 },
                 type: "column"

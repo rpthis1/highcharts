@@ -10,10 +10,13 @@
         });
 
 
-        function getReport() {
+        function getReport(args) {
+
+
             var request = $http({
                 method: "post",
-                url: "http://localhost:3000"
+                url: "http://localhost:3000",
+                data: args
             });
             return( request.then(handleSuccess, handleError) );
         }
