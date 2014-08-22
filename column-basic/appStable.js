@@ -25,16 +25,6 @@ myapp.config(function ($asideProvider) {
 })
 
 myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", function ($scope, $window, ReportService, $sce) {
-
-
-
-   $scope.selectChange  = function ()
-   {
-       console.log( $scope.selectedIcon);
-   }
-
-
-
     $scope.aside = {
         "title": "Title",
         "content": "hi"
@@ -96,10 +86,13 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             obj = {};
             obj.value = selection.label;
             obj.label = $sce.trustAsHtml(selection.label);
+            obj.click = function (){
+                alert("hi");
+            }
             dropDown.push(obj);
 
             if (selection.default) {
-                $scope.selectedIcon = obj;
+                $scope.selectedIcon = selection.label;
             }
         })
         $scope.icons = dropDown;
@@ -163,9 +156,9 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
                 options3d: {
                     enabled: true,
                     alpha: 15,
-                    beta: 0,
-                    depth:50,
-                    viewDistance: 50
+                    beta: 15,
+                    depth: 50,
+                    viewDistance: 25
                 },
                 type: "column"
             },
