@@ -4,11 +4,38 @@ body {
          background-size: 100% 100%;
      }
 
+tr {
+    background-color: #2a2a2a;
+}
 
+td {
+    border-right: 2px solid #cccccc;
+    border-left: 2px solid #cccccc;
+}
+th {
+    color: #ffffff;
+    text-align: center;
+    border-right: 2px solid #cccccc;
+    border-left: 2px solid #cccccc;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 .chartBack
 {
     background-color: rgba(255,255,255,0)
 }
+
+table.reportTable {
+    border-collapse: separate;
+    border-spacing:  10px;
+    width: 100%;
+}
+
+
 
 /*div {*/
 /*filter: alpha(opacity=50); *//* internet explorer */

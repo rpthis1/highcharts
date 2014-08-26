@@ -63,117 +63,103 @@
             <button type="button" class="btn btn-default" ng-model="selectedItem" data-html="1" ng-change="selectChange()"
                     ng-options="icon.label for icon in icons" bs-select data-animation="am-flip-x">
             </button>
-
-            <!--<button type="button" class="btn btn-lg btn-primary" data-animation="am-flip-x" bs-dropdown="dropdown">Click to toggle dropdown-->
-
-                <!--<small>-></small>-->
-            <!--</button>-->
         </div>
     </div>
     <div resizable>
         <highchart id="chart1" config="chartConfig"></highchart>
     </div>
 
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h1 class="panel-title">TMY3 Year</h1>
         </div>
-        <div class="widget-body medium no-padding">
-            <div class="table-responsive">
-                <div class="bs-example">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th class="text-center">Jan</th>
-                            <th>Feb</th>
-                            <th>Mar</th>
-                            <th>Apr</th>
-                            <th>May</th>
-                            <th>Jun</th>
-                            <th>Jul</th>
-                            <th>Aug</th>
-                            <th>Sep</th>
-                            <th>Oct</th>
-                            <th>Nov</th>
-                            <th>Dec</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr style=" line-height: 25px;min-height: 25px;height: 25px;">
-                            <td>Baseline (kWh)</td>
-                            <td class="text-center">100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                        </tr>
-                        <tr>
-                            <td>Reporting (kWH)</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                        </tr>
-                        <tr>
-                            <td>Delta (kWh)</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                            <td>100,433</td>
-                            <td>434,323</td>
-                            <td>453,343</td>
-                        </tr>
-                        <tr>
-                            <td>%</td>
-                            <td>45%</td>
-                            <td>434%</td>
-                            <td>45%</td>
-                            <td>10%</td>
-                            <td>56%</td>
-                            <td>45%</td>
-                            <td>100%</td>
-                            <td>434%</td>
-                            <td>453%</td>
-                            <td>100%</td>
-                            <td>434%</td>
-                            <td>453%</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
     </div>
+    <table class="reportTable">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Jan</th>
+            <th>Feb</th>
+            <th>Mar</th>
+            <th>Apr</th>
+            <th>May</th>
+            <th>Jun</th>
+            <th>Jul</th>
+            <th>Aug</th>
+            <th>Sep</th>
+            <th>Oct</th>
+            <th>Nov</th>
+            <th>Dec</th>
+        </tr>
+        </thead>
+        <tbody>
 
+        <tr>
+            <td>Baseline (kWh)</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+        </tr>
 
+        <tr>
+            <td>Reporting (kWH)</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+        </tr>
 
+        <tr>
+            <td>Delta (kWh)</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+            <td>100,433</td>
+            <td>434,323</td>
+            <td>453,343</td>
+        </tr>
+
+        <tr>
+            <td>%</td>
+            <td>45%</td>
+            <td>434%</td>
+            <td>45%</td>
+            <td>10%</td>
+            <td>56%</td>
+            <td>45%</td>
+            <td>100%</td>
+            <td>434%</td>
+            <td>453%</td>
+            <td>100%</td>
+            <td>434%</td>
+            <td>453%</td>
+        </tr>
+        </tbody>
+    </table>
 
 </div>
-
 </body>
 </html>
