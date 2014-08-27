@@ -1,7 +1,21 @@
+html {
+    height: 100%;
+}
+
 body {
          background-image: url("../images/Wide.jpg");
          background-repeat: no-repeat;
          background-size: 100% 100%;
+         font-family: aurulent_sans_monoregular;
+         height: 100%;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
      }
 
 tr {
@@ -15,14 +29,10 @@ td {
 th {
     color: #ffffff;
     text-align: center;
+    font-size: 12px;
     border-right: 2px solid #cccccc;
     border-left: 2px solid #cccccc;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
 }
 .chartBack
 {
@@ -34,7 +44,6 @@ table.reportTable {
     border-spacing:  10px;
     width: 100%;
 }
-
 
 
 /*div {*/

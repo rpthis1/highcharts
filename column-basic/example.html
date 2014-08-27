@@ -7,6 +7,7 @@
     <link href="css/bootstrap3.2/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/angularMotion/angular-motion.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="fonts/AurulentSansMono-Regular/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
     <!--<script src="http://code.highcharts.com/highcharts.js"></script>-->
@@ -58,107 +59,113 @@
 <div class="container-fluid"  ng-controller="myctrl">
 
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <button type="button" class="btn btn-default" ng-model="selectedItem" data-html="1" ng-change="selectChange()"
-                    ng-options="icon.label for icon in icons" bs-select data-animation="am-flip-x">
-            </button>
-        </div>
-    </div>
+    <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">-->
+            <!--<button type="button" class="btn btn-default" ng-model="selectedItem" data-html="1" ng-change="selectChange()"-->
+                    <!--ng-options="icon.label for icon in icons" bs-select data-animation="am-flip-x">-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</div>-->
     <div resizable>
         <highchart id="chart1" config="chartConfig"></highchart>
     </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h1 class="panel-title">TMY3 Year</h1>
-        </div>
+    <div resizable>
+        <highchart id="chart2" config="chartConfig"></highchart>
     </div>
-    <table class="reportTable">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Jan</th>
-            <th>Feb</th>
-            <th>Mar</th>
-            <th>Apr</th>
-            <th>May</th>
-            <th>Jun</th>
-            <th>Jul</th>
-            <th>Aug</th>
-            <th>Sep</th>
-            <th>Oct</th>
-            <th>Nov</th>
-            <th>Dec</th>
-        </tr>
-        </thead>
-        <tbody>
 
-        <tr>
-            <td>Baseline (kWh)</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-        </tr>
 
-        <tr>
-            <td>Reporting (kWH)</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-        </tr>
 
-        <tr>
-            <td>Delta (kWh)</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-            <td>100,433</td>
-            <td>434,323</td>
-            <td>453,343</td>
-        </tr>
 
-        <tr>
-            <td>%</td>
-            <td>45%</td>
-            <td>434%</td>
-            <td>45%</td>
-            <td>10%</td>
-            <td>56%</td>
-            <td>45%</td>
-            <td>100%</td>
-            <td>434%</td>
-            <td>453%</td>
-            <td>100%</td>
-            <td>434%</td>
-            <td>453%</td>
-        </tr>
-        </tbody>
-    </table>
+    <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">-->
+            <!--<h1 class="panel-title">TMY3 Year</h1>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<table class="reportTable">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th></th>-->
+            <!--<th>Jan</th>-->
+            <!--<th>Feb</th>-->
+            <!--<th>Mar</th>-->
+            <!--<th>Apr</th>-->
+            <!--<th>May</th>-->
+            <!--<th>Jun</th>-->
+            <!--<th>Jul</th>-->
+            <!--<th>Aug</th>-->
+            <!--<th>Sep</th>-->
+            <!--<th>Oct</th>-->
+            <!--<th>Nov</th>-->
+            <!--<th>Dec</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+
+        <!--<tr>-->
+            <!--<td>Baseline (kWh)</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>Reporting (kWH)</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>Delta (kWh)</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+            <!--<td>100,433</td>-->
+            <!--<td>434,323</td>-->
+            <!--<td>453,343</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>%</td>-->
+            <!--<td>45%</td>-->
+            <!--<td>434%</td>-->
+            <!--<td>45%</td>-->
+            <!--<td>10%</td>-->
+            <!--<td>56%</td>-->
+            <!--<td>45%</td>-->
+            <!--<td>100%</td>-->
+            <!--<td>434%</td>-->
+            <!--<td>453%</td>-->
+            <!--<td>100%</td>-->
+            <!--<td>434%</td>-->
+            <!--<td>453%</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
 
 </div>
 </body>

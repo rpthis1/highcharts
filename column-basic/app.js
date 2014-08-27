@@ -230,7 +230,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         ], type: "column"},
 
 
-        {"name": "Normalized", data: [
+        {"name": "Normalized", color: 'rgba(252,144,5,0.5)',  data: [
             {
                 name: 'Point 1',
                 color: 'rgba(252,144,5,0.5)',
@@ -297,12 +297,11 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         },
 
 
-        {"name": "TMY3 Temperature", yAxis: 1, xAxis: 1, data: [
+        {"name": "TMY3 Temperature", yAxis: 1, xAxis: 1,  color: '#FFFF00',  data: [
             {
                 name: 'Point 5',
-                color: '#CCCCCC',
-                y: 50,
-                yAxis: 2
+                color: '#FFFF00',
+                y: 50
             },
             {
                 name: 'Point 2',
@@ -377,6 +376,77 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
                 color: '#CCCCCC',
                 y: 101
             }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 75
+            },
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 46
+            } ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 56
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 78
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 45
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 67
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 78
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y:67
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y: 34
+            } ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y:56
+            }
+            ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y:78
+            } ,
+            {
+                name: 'Point 5',
+                color: '#CCCCCC',
+                y:67
+            }
+
+
+
         ], type: "line"}
 
 
@@ -386,9 +456,10 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
     $scope.chartConfig = {
         options: {
             chart: {
+
                 backgroundColor: null,
                 margin: 75,
-                height: $window.innerHeight - 300,
+                height: $window.innerHeight -200,
                 options3d: {
                     enabled: true,
                     alpha: 15,
@@ -401,9 +472,12 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             xAxis: [
                 {
                     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    labels: {   style: {
-                        color: '#FFFFFF'
-                    }
+                    labels: {
+
+                        style: {
+                            color: '#FFFFFF',
+                            font: 'bold 12px "aurulent_sans_monoregular"'
+                        }
                     }
                 },
                 {
@@ -451,6 +525,10 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             legend: {
                 enabled: false
             },
+            tooltip: {
+                shared: true,
+                crosshairs: true
+            },
 
             plotOptions: {
                 series: {
@@ -467,7 +545,11 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         },
         series: $scope.chartSeries,
         title: {
-            text: 'TMY3 Year'
+            text: 'TMY3 Year',
+            style: {
+                color: '#CCCCCC',
+                font: 'bold 20px "aurulent_sans_monoregular"'
+            }
         },
         credits: {
             enabled: false
@@ -491,7 +573,7 @@ myapp.directive('resizable', function ($window) {
         $scope.initializeWindowSize = function () {
 
             //    console.log("Div Height: " + $element[0].clientHeight);
-            $scope.chartConfig.options.chart.height = $window.innerHeight - 300;
+            $scope.chartConfig.options.chart.height = $window.innerHeight - 200 ;
 
             //  $scope.chartConfig.options.chart.height =  $element[0].clientHeight;
         };
