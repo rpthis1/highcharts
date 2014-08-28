@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html style="height: 100%"  lang="en">
+<head>
+    <!-- Le styles -->
+
+
+
+    <link href="css/bootstrap3.2/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap3.2/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/angularMotion/angular-motion.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="fonts/AurulentSansMono-Regular/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <!--<script src="http://code.highcharts.com/highcharts.js"></script>-->
+    <!--<script src="../js/highcharts-3d.src.js"></script>-->
+    <script src="../js/highcharts-all.js"></script>
+    <script src="//code.angularjs.org/1.2.18/angular-sanitize.min.js" data-semver="1.2.18"></script>
+    <script src="../src/angular-animate1.2.22/angular-animate.min.js"></script>
+    <script src="../src/angular-strap2.0.5/angular-strap.min.js"></script>
+    <script src="../src/angular-strap2.0.5/angular-strap.tpl.min.js"></script>
+    <script src="../src/highcharts-ng.js"></script>
+    <script src="services/service.js"></script>
+    <script src="app.js"></script>
+
+    <script src="../js/fusion/fusioncharts.js"></script>
+    <script src="../js/fusion/themes/fusioncharts.theme.zune.js"></script>
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="height: 100%">
+
+<script type="text/javascript">
+
+
+    FusionCharts.ready(function(){
+        var revenueChart = new FusionCharts({
+            type: "column2d",
+            renderAt: "fusionDiv",
+            width: "100%",
+            height: "80%",
+            dataFormat: "json",
+
+            dataSource: {
+                "chart": {
+                    "caption": "Monthly revenue for last year",
+                    "subCaption": "Harry's SuperMart",
+                    "xAxisName": "Month",
+                    "yAxisName": "Revenues (In USD)",
+                    "theme": "zune",
+                    "canvasBgAlpha": "0",
+                    "canvasbgColor":"#FF0000",
+                    "bgColor": "EEEEEE,CCCCCC",
+                    "bgratio": "60,40",
+                    "bgAlpha": "0,0",
+                    "bgImage": "http://localhost:63342/highcharts/column-basic/images/wide.jpg",
+                    //Background image transparency
+                    "bgImageAlpha":"100",
+                    "bgImageDisplayMode":"stretch"
+                },
+                "data": [
+                    {
+                        "label": "Jan",
+                        "value": "420000"
+                    },
+                    {
+                        "label": "Feb",
+                        "value": "810000"
+                    },
+                    {
+                        "label": "Mar",
+                        "value": "720000"
+                    },
+                    {
+                        "label": "Apr",
+                        "value": "550000"
+                    },
+                    {
+                        "label": "May",
+                        "value": "910000"
+                    },
+                    {
+                        "label": "Jun",
+                        "value": "510000"
+                    },
+                    {
+                        "label": "Jul",
+                        "value": "680000"
+                    },
+                    {
+                        "label": "Aug",
+                        "value": "620000"
+                    },
+                    {
+                        "label": "Sep",
+                        "value": "610000"
+                    },
+                    {
+                        "label": "Oct",
+                        "value": "490000"
+                    },
+                    {
+                        "label": "Nov",
+                        "value": "900000"
+                    },
+                    {
+                        "label": "Dec",
+                        "value": "730000"
+                    }
+                ]
+            }
+
+        });
+        revenueChart.render("fusionDiv");
+    });
+
+
+</script>
+
+
+                <div id="fusionDiv" style="background-color: #006DCC">
+
+                </div>
+
+
+
+
+</body>
+</html>

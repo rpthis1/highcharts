@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html  ng-app="myapp" lang="en">
+<html style="height: 100%"  ng-app="myapp" lang="en">
 <head>
     <!-- Le styles -->
 
 
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="../js/highcharts-3d.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link href="css/bootstrap3.2/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap3.2/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/angularMotion/angular-motion.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="fonts/AurulentSansMono-Regular/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
     <!--<script src="http://code.highcharts.com/highcharts.js"></script>-->
-    <!--<script src="../js/highcharts-3d.src.js"></script>-->
-    <script src="../js/highcharts-all.js"></script>
+    <!--<script src="../js/highc  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>harts-3d.src.js"></script>-->
+
     <script src="//code.angularjs.org/1.2.18/angular-sanitize.min.js" data-semver="1.2.18"></script>
     <script src="../src/angular-animate1.2.22/angular-animate.min.js"></script>
     <script src="../src/angular-strap2.0.5/angular-strap.min.js"></script>
@@ -30,120 +35,284 @@
 
 
 
-
-
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
 </head>
 
-<body>
+<body style="height: 100%">
 
 <script type="text/javascript">
 
 
-    FusionCharts.ready(function(){
+    FusionCharts.ready(function () {
         var revenueChart = new FusionCharts({
-            type: "column2d",
-            renderAt: "fusionDiv",
-            width: "500",
-            height: "300",
-            dataFormat: "json",
-            dataSource: {
+            renderAt: 'fusionDiv',
+            width: '100%',
+            height: '80%',
+            "type": "mscolumn3dlinedy",
+            "dataFormat": "json",
+            "dataSource": {
                 "chart": {
-                    "caption": "Monthly revenue for last year",
-                    "subCaption": "Harry's SuperMart",
-                    "xAxisName": "Month",
-                    "yAxisName": "Revenues (In USD)",
-                    "theme": "zune"
+                    "caption": "Product-wise Quarterly Revenue vs. Profit %",
+                    "subCaption": "Harry's SuperMart - Last Year",
+                    "xAxisname": "Quarter",
+                    "pYAxisName": "Sales",
+                    "sYAxisName": "Profit %",
+                    "numberPrefix": "$",
+                    "sNumberSuffix": "%",
+                    "sYAxisMaxValue": "25",
+                    "paletteColors": "#0075c2,#1aaf5d,#f2c500",
+                    "bgColor": "#ffffff",
+                    "showBorder": "0",
+                    "showCanvasBorder": "0",
+                    "usePlotGradientColor": "0",
+                    "plotBorderAlpha": "10",
+                    "legendBorderAlpha": "0",
+                    "legendBgAlpha": "0",
+                    "legendShadow": "0",
+                    "showHoverEffect": "1",
+                    "valueFontColor": "#ffffff",
+                    "rotateValues": "1",
+                    "placeValuesInside": "1",
+                    "divlineColor": "#999999",
+                    "divLineIsDashed": "1",
+                    "divLineDashLen": "1",
+                    "divLineGapLen": "1",
+                    "canvasBgColor": "#ffffff",
+                    "captionFontSize": "14",
+                    "subcaptionFontSize": "14",
+                    "subcaptionFontBold": "0"
                 },
-                "data": [
+                "categories": [
                     {
-                        "label": "Jan",
-                        "value": "420000"
+                        "category": [
+                            {
+                                "label": "Q1"
+                            },
+                            {
+                                "label": "Q2"
+                            },
+                            {
+                                "label": "Q3"
+                            },
+                            {
+                                "label": "Q4"
+                            }
+                        ]
+                    }
+                ],
+                "dataset": [
+                    {
+                        "seriesname": "Food Products",
+                        "data": [
+                            {
+                                "value": "11000"
+                            },
+                            {
+                                "value": "14000"
+                            },
+                            {
+                                "value": "10500"
+                            },
+                            {
+                                "value": "15000"
+                            }
+                        ]
                     },
                     {
-                        "label": "Feb",
-                        "value": "810000"
+                        "seriesname": "Non-Food Products",
+                        "data": [
+                            {
+                                "value": "14400"
+                            },
+                            {
+                                "value": "14800"
+                            },
+                            {
+                                "value": "8300"
+                            },
+                            {
+                                "value": "11800"
+                            }
+                        ]
                     },
                     {
-                        "label": "Mar",
-                        "value": "720000"
-                    },
-                    {
-                        "label": "Apr",
-                        "value": "550000"
-                    },
-                    {
-                        "label": "May",
-                        "value": "910000"
-                    },
-                    {
-                        "label": "Jun",
-                        "value": "510000"
-                    },
-                    {
-                        "label": "Jul",
-                        "value": "680000"
-                    },
-                    {
-                        "label": "Aug",
-                        "value": "620000"
-                    },
-                    {
-                        "label": "Sep",
-                        "value": "610000"
-                    },
-                    {
-                        "label": "Oct",
-                        "value": "490000"
-                    },
-                    {
-                        "label": "Nov",
-                        "value": "900000"
-                    },
-                    {
-                        "label": "Dec",
-                        "value": "730000"
+                        "seriesname": "Profit %",
+                        "renderAs": "line",
+                        "parentYAxis": "S",
+                        "showValues": "0",
+                        "data": [
+                            {
+                                "value": "14"
+                            },
+                            {
+                                "value": "16"
+                            },
+                            {
+                                "value": "15"
+                            },
+                            {
+                                "value": "17"
+                            }
+                        ]
                     }
                 ]
             }
 
         });
-        revenueChart.render("fusionDiv");
+
+        revenueChart.render(fusionDiv);
+    });
+
+
+    $(function () {
+
+        var ranges = [
+                    [1246406400000, 14.3, 27.7],
+                    [1246492800000, 14.5, 27.8],
+                    [1246579200000, 15.5, 29.6],
+                    [1246665600000, 16.7, 30.7],
+                    [1246752000000, 16.5, 25.0],
+                    [1246838400000, 17.8, 25.7],
+                    [1246924800000, 13.5, 24.8],
+                    [1247011200000, 10.5, 21.4],
+                    [1247097600000, 9.2, 23.8],
+                    [1247184000000, 11.6, 21.8],
+                    [1247270400000, 10.7, 23.7],
+                    [1247356800000, 11.0, 23.3],
+                    [1247443200000, 11.6, 23.7],
+                    [1247529600000, 11.8, 20.7],
+                    [1247616000000, 12.6, 22.4],
+                    [1247702400000, 13.6, 19.6],
+                    [1247788800000, 11.4, 22.6],
+                    [1247875200000, 13.2, 25.0],
+                    [1247961600000, 14.2, 21.6],
+                    [1248048000000, 13.1, 17.1],
+                    [1248134400000, 12.2, 15.5],
+                    [1248220800000, 12.0, 20.8],
+                    [1248307200000, 12.0, 17.1],
+                    [1248393600000, 12.7, 18.3],
+                    [1248480000000, 12.4, 19.4],
+                    [1248566400000, 12.6, 19.9],
+                    [1248652800000, 11.9, 20.2],
+                    [1248739200000, 11.0, 19.3],
+                    [1248825600000, 10.8, 17.8],
+                    [1248912000000, 11.8, 18.5],
+                    [1248998400000, 10.8, 16.1]
+                ],
+                averages = [
+                    [1246406400000, 21.5],
+                    [1246492800000, 22.1],
+                    [1246579200000, 23],
+                    [1246665600000, 23.8],
+                    [1246752000000, 21.4],
+                    [1246838400000, 21.3],
+                    [1246924800000, 18.3],
+                    [1247011200000, 15.4],
+                    [1247097600000, 16.4],
+                    [1247184000000, 17.7],
+                    [1247270400000, 17.5],
+                    [1247356800000, 17.6],
+                    [1247443200000, 17.7],
+                    [1247529600000, 16.8],
+                    [1247616000000, 17.7],
+                    [1247702400000, 16.3],
+                    [1247788800000, 17.8],
+                    [1247875200000, 18.1],
+                    [1247961600000, 17.2],
+                    [1248048000000, 14.4],
+                    [1248134400000, 13.7],
+                    [1248220800000, 15.7],
+                    [1248307200000, 14.6],
+                    [1248393600000, 15.3],
+                    [1248480000000, 15.3],
+                    [1248566400000, 15.8],
+                    [1248652800000, 15.2],
+                    [1248739200000, 14.8],
+                    [1248825600000, 14.4],
+                    [1248912000000, 15],
+                    [1248998400000, 13.6]
+                ];
+
+
+        $('#area').highcharts(
+                {
+
+                    title: {
+                        text: 'July temperatures'
+                    },
+
+                    xAxis: {
+                        type: 'datetime'
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: null
+                        }
+                    },
+
+                    tooltip: {
+                        crosshairs: true,
+                        shared: true,
+                        valueSuffix: '°C'
+                    },
+
+                    legend: {
+                    },
+
+                    series: [{
+                        name: 'Temperature',
+                        data: averages,
+                        zIndex: 1,
+                        marker: {
+                            fillColor: 'white',
+                            lineWidth: 2,
+                            lineColor: Highcharts.getOptions().colors[0]
+                        }
+                    }, {
+                        name: 'Range',
+                        data: ranges,
+                        type: 'arearange',
+                        lineWidth: 0,
+                        linkedTo: ':previous',
+                        color: Highcharts.getOptions().colors[0],
+                        fillOpacity: 0.3,
+                        zIndex: 0
+                    }]
+                });
     });
 
 
 </script>
 
-<div class="container"  ng-controller="myctrl" >
+<div class="container"  ng-controller="myctrl" style="height: 100%" >
 
     <!-------->
-    <div id="content">
+    <div id="content" style="height: 100%">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-            <li class="active"><a href="#red" data-toggle="tab">Red</a></li>
+            <li class="active"><a href="#red" data-toggle="tab">High Charts (IPMVP)</a></li>
             <li><a href="#orange" data-toggle="tab">Orange</a></li>
             <li><a href="#yellow" data-toggle="tab">Yellow</a></li>
             <li><a href="#green" data-toggle="tab">Green</a></li>
             <li><a href="#blue" data-toggle="tab">Blue</a></li>
         </ul>
-        <div id="my-tab-content" class="tab-content" >
-            <div class="tab-pane active" id="red">
+        <div id="my-tab-content" class="tab-content" style="height: 100%" >
+            <div class="tab-pane active" id="red" >
                 <h1>High Charts</h1>
-                <div resizable>
-                    <highchart id="chart1" config="chartConfig"></highchart>
-                </div>
-            </div>
-            <div class="tab-pane" id="orange">
-                <h1>Fusion</h1>
-                <div id="fusionDiv">
 
+                    <highchart id="chart1" config="chartConfig"></highchart>
+
+            </div>
+            <div class="tab-pane" id="orange" style="height: 100%; background-color: rgba(255,255,255,0)">
+                <h1>Fusion</h1>
+                <div id="fusionDiv" style="height: 100%; background-color: rgba(255,255,255,0)">
                 </div>
             </div>
             <div class="tab-pane" id="yellow">
                 <h1>Yellow</h1>
-                <p>yellow yellow yellow yellow yellow</p>
+                <div id="area" style="height: 100%; background-color: rgba(255,255,255,0)">
+
+                </div>
+
             </div>
             <div class="tab-pane" id="green">
                 <h1>Green</h1>

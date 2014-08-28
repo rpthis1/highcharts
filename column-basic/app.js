@@ -153,7 +153,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
     $scope.chartSeries = [
 
 
-        {"name": "Baseline", data: [
+        {"name": "Baseline", color: 'rgba(204,204,204,0.5)', data: [
             {
                 name: 'Point 5',
                 color: 'rgba(255, 255, 255, 0.5)',
@@ -297,36 +297,36 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         },
 
 
-        {"name": "TMY3 Temperature", yAxis: 1, xAxis: 1,  color: '#FFFF00',  data: [
+        {"name": "TMY3 Temperature", yAxis: 1, xAxis: 1,  color: '#FFCC00',  data: [
             {
                 name: 'Point 5',
                 color: '#FFFF00',
-                y: 50
+                y: 65
             },
             {
                 name: 'Point 2',
                 color: '#CCCCCC',
-                y: 52
+                y: 62
             },
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 54
+                y: 6
             },
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 55
+                y:75
             },
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 60
+                y: 67
             },
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 78
+                y: 70
             },
             {
                 name: 'Point 5',
@@ -346,35 +346,35 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 81
+                y: 74
             },
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 82
+                y: 72
             },
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 83
+                y: 73
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 99
+                y: 79
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 100
+                y: 70
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 101
+                y: 71
             }
             ,
             {
@@ -385,24 +385,24 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 46
+                y: 76
             } ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 56
+                y: 66
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 78
+                y: 68
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 45
+                y: 65
             }
             ,
             {
@@ -426,18 +426,18 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y: 34
+                y: 64
             } ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:56
+                y:66
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:78
+                y:68
             } ,
             {
                 name: 'Point 5',
@@ -453,17 +453,152 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
     ];
 
 
-    $scope.chartConfig = {
+    var ranges = [
+            [1246406400000, 14.3, 27.7],
+            [1246492800000, 14.5, 27.8],
+            [1246579200000, 15.5, 29.6],
+            [1246665600000, 16.7, 30.7],
+            [1246752000000, 16.5, 25.0],
+            [1246838400000, 17.8, 25.7],
+            [1246924800000, 13.5, 24.8],
+            [1247011200000, 10.5, 21.4],
+            [1247097600000, 9.2, 23.8],
+            [1247184000000, 11.6, 21.8],
+            [1247270400000, 10.7, 23.7],
+            [1247356800000, 11.0, 23.3],
+            [1247443200000, 11.6, 23.7],
+            [1247529600000, 11.8, 20.7],
+            [1247616000000, 12.6, 22.4],
+            [1247702400000, 13.6, 19.6],
+            [1247788800000, 11.4, 22.6],
+            [1247875200000, 13.2, 25.0],
+            [1247961600000, 14.2, 21.6],
+            [1248048000000, 13.1, 17.1],
+            [1248134400000, 12.2, 15.5],
+            [1248220800000, 12.0, 20.8],
+            [1248307200000, 12.0, 17.1],
+            [1248393600000, 12.7, 18.3],
+            [1248480000000, 12.4, 19.4],
+            [1248566400000, 12.6, 19.9],
+            [1248652800000, 11.9, 20.2],
+            [1248739200000, 11.0, 19.3],
+            [1248825600000, 10.8, 17.8],
+            [1248912000000, 11.8, 18.5],
+            [1248998400000, 10.8, 16.1]
+        ],
+        averages = [
+            [1246406400000, 21.5],
+            [1246492800000, 22.1],
+            [1246579200000, 23],
+            [1246665600000, 23.8],
+            [1246752000000, 21.4],
+            [1246838400000, 21.3],
+            [1246924800000, 18.3],
+            [1247011200000, 15.4],
+            [1247097600000, 16.4],
+            [1247184000000, 17.7],
+            [1247270400000, 17.5],
+            [1247356800000, 17.6],
+            [1247443200000, 17.7],
+            [1247529600000, 16.8],
+            [1247616000000, 17.7],
+            [1247702400000, 16.3],
+            [1247788800000, 17.8],
+            [1247875200000, 18.1],
+            [1247961600000, 17.2],
+            [1248048000000, 14.4],
+            [1248134400000, 13.7],
+            [1248220800000, 15.7],
+            [1248307200000, 14.6],
+            [1248393600000, 15.3],
+            [1248480000000, 15.3],
+            [1248566400000, 15.8],
+            [1248652800000, 15.2],
+            [1248739200000, 14.8],
+            [1248825600000, 14.4],
+            [1248912000000, 15],
+            [1248998400000, 13.6]
+        ];
+
+    $scope.chartConfig2 =
+    {
+        options:
+        {
+            title: {
+                text: 'July temperatures'
+            },
+
+            xAxis: {
+                type: 'datetime'
+            },
+
+            yAxis: {
+                title: {
+                    text: null
+                }
+            },
+
+            tooltip: {
+                crosshairs: false,
+                shared: true,
+                valueSuffix: '°C',
+                backgroundColor: '#FCFFC5',
+                borderColor: 'black',
+                borderRadius: 10,
+                borderWidth: 3
+            }
+
+
+
+            ,
+
+            legend: {
+            },
+
+            series: [{
+                name: 'Temperature',
+                data: averages,
+                zIndex: 1,
+                marker: {
+                    fillColor: 'white',
+                    lineWidth: 2,
+                    lineColor: Highcharts.getOptions().colors[0]
+                }
+            }, {
+                name: 'Range',
+                data: ranges,
+                type: 'arearange',
+                lineWidth: 0,
+                linkedTo: ':previous',
+                color: Highcharts.getOptions().colors[0],
+                fillOpacity: 0.3,
+                zIndex: 0
+            }]
+
+        }
+    }
+
+    $scope.reflow = function () {
+
+        console.log("resized");
+        $scope.$broadcast('highchartsng.reflow');
+    };
+
+
+    $scope.chartConfig =
+    {
         options: {
             chart: {
 
                 backgroundColor: null,
-                margin: 75,
-                height: $window.innerHeight -200,
+
+                margin: 80,
+                height: 600,
+                width:1000,
                 options3d: {
                     enabled: true,
                     alpha: 15,
-                    beta: 0,
+                    beta: 5,
                     depth: 50,
                     viewDistance: 50
                 },
@@ -471,6 +606,9 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             },
             xAxis: [
                 {
+                    lineWidth: 0,
+                    minorGridLineWidth: 0,
+                    lineColor: 'transparent',
                     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     labels: {
 
@@ -481,7 +619,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
                     }
                 },
                 {
-                    categories: ['', '', '', '', '', '', '', '', '', '', '', '', "", "", ""],
+                    categories: ['', '', '', '', '', '', '', '', '', '', '', '', "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
                     tickWidth: 0,
                     lineWidth: 0
 
@@ -498,8 +636,11 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
                         text: 'Usage (kWh)',
                         style: {
                             color: '#FFFFFF'
+
                         }
-                    }
+                    },
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0
 
 
                 },
@@ -508,14 +649,16 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
                         text: 'Temperature',
                         style: {
                             color: '#FFFFFF'
+
                         }
 
                     },
 
                     labels: {   style: {
                         color: '#FFFFFF'
+
                     },
-                        format: '{value}F'
+                        format: '{value} F'
                     },
                     opposite: true
 
@@ -523,11 +666,18 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             ],
 
             legend: {
-                enabled: false
+                enabled: true,
+                borderRadius: 5,
+                borderColor: "#CCCCCC",
+                borderWidth: 3,
+                backgroundColor: "#2a2a2a",
+                itemStyle: { "color": "#FFFFFF", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }
             },
             tooltip: {
-                shared: true,
-                crosshairs: true
+
+                crosshairs: false,
+                shared: true
+
             },
 
             plotOptions: {
