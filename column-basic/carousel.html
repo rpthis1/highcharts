@@ -46,20 +46,20 @@
         var revenueChart = new FusionCharts({
             renderAt: 'fusionDiv',
             width: '100%',
-            height: '80%',
+            height: '60%',
             "type": "mscolumn3dlinedy",
             "dataFormat": "json",
             "dataSource": {
                 "chart": {
-                    "caption": "Product-wise Quarterly Revenue vs. Profit %",
-                    "subCaption": "Harry's SuperMart - Last Year",
-                    "xAxisname": "Quarter",
-                    "pYAxisName": "Sales",
-                    "sYAxisName": "Profit %",
-                    "numberPrefix": "$",
-                    "sNumberSuffix": "%",
+                    "caption": "TMY3 Year",
+                    "subCaption": "",
+                    "xAxisname": "Months",
+                    "pYAxisName": "kWh",
+                    "sYAxisName": "Temperature %",
+                    "numberPrefix": "",
+                    "sNumberSuffix": "F",
                     "sYAxisMaxValue": "25",
-                    "paletteColors": "#0075c2,#1aaf5d,#f2c500",
+                    "paletteColors": "#CCCCCC,FC9001,#f2c500",
                     "bgColor": "#ffffff",
                     "showBorder": "0",
                     "showCanvasBorder": "0",
@@ -85,23 +85,49 @@
                     {
                         "category": [
                             {
-                                "label": "Q1"
+                                "label": "Jan"
                             },
                             {
-                                "label": "Q2"
+                                "label": "Feb"
                             },
                             {
-                                "label": "Q3"
+                                "label": "Mar"
                             },
                             {
-                                "label": "Q4"
+                                "label": "Apr"
+                            },
+                            {
+                                "label": "May"
+                            },
+                            {
+                                "label": "Jun"
+                            },
+                            {
+                                "label": "Jul"
+                            },
+                            {
+                                "label": "Aug"
+                            },
+                            {
+                                "label": "Sep"
+                            },
+                            {
+                                "label": "Oct"
+                            },
+                            {
+                                "label": "Nov"
+                            },
+                            {
+                                "label": "Dec"
                             }
+
+
                         ]
                     }
                 ],
                 "dataset": [
                     {
-                        "seriesname": "Food Products",
+                        "seriesname": "Baseline",
                         "data": [
                             {
                                 "value": "11000"
@@ -113,12 +139,37 @@
                                 "value": "10500"
                             },
                             {
-                                "value": "15000"
+                                "value": "13000"
+                            },
+                            {
+                                "value": "13000"
+                            },
+                            {
+                                "value": "13000"
+                            },
+                            {
+                                "value": "14000"
+                            },
+                            {
+                                "value": "16000"
+                            },
+                            {
+                                "value": "17000"
+                            },
+                            {
+                                "value": "13000"
+                            },
+                            {
+                                "value": "14000"
+                            },
+                            {
+                                "value": "12000"
                             }
+
                         ]
                     },
                     {
-                        "seriesname": "Non-Food Products",
+                        "seriesname": "Normalized",
                         "data": [
                             {
                                 "value": "14400"
@@ -130,27 +181,75 @@
                                 "value": "8300"
                             },
                             {
-                                "value": "11800"
+                                "value": "11700"
+                            },
+                            {
+                                "value": "13000"
+                            },
+                            {
+                                "value": "18000"
+                            },
+                            {
+                                "value": "19000"
+                            },
+                            {
+                                "value": "11000"
+                            },
+                            {
+                                "value": "12000"
+                            },
+                            {
+                                "value": "13000"
+                            },
+                            {
+                                "value": "14000"
+                            },
+                            {
+                                "value": "12000"
                             }
                         ]
                     },
                     {
-                        "seriesname": "Profit %",
+                        "seriesname": "Temperature",
                         "renderAs": "line",
                         "parentYAxis": "S",
                         "showValues": "0",
                         "data": [
                             {
-                                "value": "14"
+                                "value": "50"
                             },
                             {
-                                "value": "16"
+                                "value": "55"
                             },
                             {
-                                "value": "15"
+                                "value": "60"
                             },
                             {
-                                "value": "17"
+                                "value": "61"
+                            },
+                            {
+                                "value": "63"
+                            },
+                            {
+                                "value": "65"
+                            },
+                            {
+                                "value": "64"
+                            },
+                            {
+                                "value": "66"
+                            },
+                            {
+                                "value": "67"
+                            },
+                            {
+                                "value": "68"
+                            },
+                            {
+                                "value": "69"
+                            },
+                            {
+                                "value": "70"
                             }
                         ]
                     }
@@ -236,6 +335,14 @@
         $('#area').highcharts(
                 {
 
+                    chart: {
+
+                        backgroundColor: null,
+                        margin: 80,
+                        height: 600,
+                        width:1000
+
+                    },
                     title: {
                         text: 'July temperatures'
                     },
@@ -289,34 +396,41 @@
     <!-------->
     <div id="content" style="height: 100%">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-            <li class="active"><a href="#red" data-toggle="tab">High Charts (IPMVP)</a></li>
-            <li><a href="#orange" data-toggle="tab">Orange</a></li>
-            <li><a href="#yellow" data-toggle="tab">Yellow</a></li>
+            <li class="active"><a href="#red" data-toggle="tab">HighCharts (IPMVP 3D)</a></li>
+            <li><a href="#orange" data-toggle="tab">FusionCharts (IPMVP 3D)</a></li>
+            <li><a href="#red2" data-toggle="tab">HighCharts (IPMVP)</a></li>
+            <li><a href="#yellow" data-toggle="tab">FusionCharts (IPMVP)</a></li>
             <li><a href="#green" data-toggle="tab">Green</a></li>
             <li><a href="#blue" data-toggle="tab">Blue</a></li>
         </ul>
         <div id="my-tab-content" class="tab-content" style="height: 100%" >
             <div class="tab-pane active" id="red" >
-                <h1>High Charts</h1>
-
+                <h1>High Charts 3D</h1>
                     <highchart id="chart1" config="chartConfig"></highchart>
-
             </div>
+
             <div class="tab-pane" id="orange" style="height: 100%; background-color: rgba(255,255,255,0)">
-                <h1>Fusion</h1>
+                <h1>Fusion 3D</h1>
                 <div id="fusionDiv" style="height: 100%; background-color: rgba(255,255,255,0)">
                 </div>
             </div>
-            <div class="tab-pane" id="yellow">
-                <h1>Yellow</h1>
-                <div id="area" style="height: 100%; background-color: rgba(255,255,255,0)">
 
+            <div class="tab-pane active" id="red2" >
+                <h1>High Charts</h1>
+                <highchart id="chart2" config="chartConfig2"></highchart>
+            </div>
+
+            <div class="tab-pane" id="yellow">
+                <h1>Fusion</h1>
+                <div id="fusionDiv2" style="height: 100%; background-color: rgba(255,255,255,0)">
                 </div>
+
 
             </div>
             <div class="tab-pane" id="green">
                 <h1>Green</h1>
-                <p>green green green green green</p>
+                <div id="area" style="height: 100%; background-color: rgba(255,255,255,0)">
+                </div>
             </div>
             <div class="tab-pane" id="blue">
                 <h1>Blue</h1>

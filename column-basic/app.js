@@ -230,15 +230,28 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         ], type: "column"},
 
 
-        {"name": "Normalized", color: 'rgba(252,144,5,0.5)',  data: [
+        {"name": "Normalized", color: 'rgba(252,144,5,1)', data: [
             {
                 name: 'Point 1',
-                color: 'rgba(252,144,5,0.5)',
+                color: {
+                    linearGradient: { x1: 2, x2: 0, y1: 0, y2: 1 },
+                    stops:[
+                        [0, 'rgba(252,144,5,0.5)'],
+                        [1, 'rgba(51,102,107,0.5)'],
+                        [2, 'rgba(51,102,0,0.5)']
+                    ]
+                },
                 y: 319476
             },
             {
                 name: 'Point 2',
-                color: 'rgba(252,144,5,0.5)',
+                color: {
+                    radialGradient: { cx: 0.5, cy: 0.5, r: 0.5 },
+                    stops:[
+                        [0, 'rgba(252,144,5,0.5)'],
+                    [1, 'rgba(51,102,107,0.5)']
+        ]
+        },
                 y: 291352
             },
             {
@@ -297,7 +310,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
         },
 
 
-        {"name": "TMY3 Temperature", yAxis: 1, xAxis: 1,  color: '#FFCC00',  data: [
+        {"name": "TMY3 Temperature",shadow : true, yAxis: 1, xAxis: 1, color: '#FFCC00', data: [
             {
                 name: 'Point 5',
                 color: '#FFFF00',
@@ -316,7 +329,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:75
+                y: 75
             },
             {
                 name: 'Point 5',
@@ -420,7 +433,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:67
+                y: 67
             }
             ,
             {
@@ -431,20 +444,19 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:66
+                y: 66
             }
             ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:68
+                y: 68
             } ,
             {
                 name: 'Point 5',
                 color: '#CCCCCC',
-                y:67
+                y: 67
             }
-
 
 
         ], type: "line"}
@@ -522,71 +534,6 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
 
     $scope.chartConfig2 =
     {
-        options:
-        {
-            title: {
-                text: 'July temperatures'
-            },
-
-            xAxis: {
-                type: 'datetime'
-            },
-
-            yAxis: {
-                title: {
-                    text: null
-                }
-            },
-
-            tooltip: {
-                crosshairs: false,
-                shared: true,
-                valueSuffix: '°C',
-                backgroundColor: '#FCFFC5',
-                borderColor: 'black',
-                borderRadius: 10,
-                borderWidth: 3
-            }
-
-
-
-            ,
-
-            legend: {
-            },
-
-            series: [{
-                name: 'Temperature',
-                data: averages,
-                zIndex: 1,
-                marker: {
-                    fillColor: 'white',
-                    lineWidth: 2,
-                    lineColor: Highcharts.getOptions().colors[0]
-                }
-            }, {
-                name: 'Range',
-                data: ranges,
-                type: 'arearange',
-                lineWidth: 0,
-                linkedTo: ':previous',
-                color: Highcharts.getOptions().colors[0],
-                fillOpacity: 0.3,
-                zIndex: 0
-            }]
-
-        }
-    }
-
-    $scope.reflow = function () {
-
-        console.log("resized");
-        $scope.$broadcast('highchartsng.reflow');
-    };
-
-
-    $scope.chartConfig =
-    {
         options: {
             chart: {
 
@@ -594,7 +541,7 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
 
                 margin: 80,
                 height: 600,
-                width:1000,
+                width: 1000,
                 options3d: {
                     enabled: true,
                     alpha: 15,
@@ -715,6 +662,160 @@ myapp.controller('myctrl', ['$scope', '$window', 'ReportService', "$sce", functi
     };
 
 
+    $scope.reflow = function () {
+
+        console.log("resized");
+        $scope.$broadcast('highchartsng.reflow');
+    };
+
+
+    $scope.chartConfig =
+    {
+        options: {
+            chart: {
+                shadow: true,
+
+                backgroundColor: null,
+
+                margin: 80,
+
+                options3d: {
+                    enabled: false,
+                    alpha: 5,
+                    beta: 0,
+                    depth: 50,
+                    viewDistance: 50,
+                    frame: {
+                        side: {
+                            color: "#CCCCCC"
+                        },
+                        bottom: {
+                            color: "#CCCCCC"
+                        },
+                        back: {
+                            color: "#CCCCCC"
+                        }
+                    }
+                },
+                type: "column"
+            },
+            xAxis: [
+                {
+                    lineWidth: 0,
+                    minorGridLineWidth: 0,
+                    lineColor: 'transparent',
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    labels: {
+
+                        style: {
+                            color: '#FFFFFF',
+                            font: 'bold 12px "aurulent_sans_monoregular"'
+                        }
+                    }
+                },
+                {
+                    categories: ['', '', '', '', '', '', '', '', '', '', '', '', "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+                    tickWidth: 0,
+                    lineWidth: 0
+
+                }
+            ],
+
+            yAxis: [
+                { // Primary yAxis
+                    labels: {   style: {
+                        color: '#FFFFFF'
+                    }
+                    },
+                    title: {
+                        text: 'Usage (kWh)',
+                        style: {
+                            color: '#FFFFFF'
+
+                        }
+                    },
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0
+
+
+                },
+                { // Secondary yAxis
+                    title: {
+                        text: 'Temperature',
+                        style: {
+                            color: '#FFFFFF'
+
+                        }
+
+                    },
+
+                    labels: {   style: {
+                        color: '#FFFFFF'
+
+                    },
+                        format: '{value} F'
+                    },
+                    opposite: true
+
+                }
+            ],
+
+            legend: {
+                enabled: true,
+                borderRadius: 5,
+                borderColor: "#CCCCCC",
+                borderWidth: 3,
+                backgroundColor: "#2a2a2a",
+                itemStyle: { "color": "#FFFFFF", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }
+            },
+            tooltip: {
+
+                crosshairs: false,
+                shared: true
+
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: '',
+                    shadow:true
+                },
+                column: {
+                    depth: 25,
+                    borderColor: "#FFFFFF",
+                    borderWidth: 10
+                },
+                bar: {
+                    borderRadius: 10
+                }
+
+            }
+        },
+        exporting: {
+            enabled: true
+        },
+        series: $scope.chartSeries,
+        title: {
+            text: 'TMY3 Year',
+            style: {
+                color: '#CCCCCC',
+                font: 'bold 20px "aurulent_sans_monoregular"'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        loading: false,
+        size: {}
+    }
+
+    $scope.reflow = function () {
+
+        console.log("resized");
+        $scope.$broadcast('highchartsng.reflow');
+    };
+
+
 }]);
 
 myapp.directive('resizable', function ($window) {
@@ -723,7 +824,7 @@ myapp.directive('resizable', function ($window) {
         $scope.initializeWindowSize = function () {
 
             //    console.log("Div Height: " + $element[0].clientHeight);
-            $scope.chartConfig.options.chart.height = $window.innerHeight - 200 ;
+            $scope.chartConfig.options.chart.height = $window.innerHeight - 200;
 
             //  $scope.chartConfig.options.chart.height =  $element[0].clientHeight;
         };

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+
+    $('#container').highcharts({
+
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+
+        title: {
+            text: 'Glass columns'
+        },
+
+        series: [{
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+            type: 'column',
+            color: {
+                linearGradient: { x1: 0, x2: 1, y1: 0, y2: 0 },
+                stops: [
+                    [0, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get()],
+                    [0.3, 'rgba(255,255,255,0.5)'],
+                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get()]
+                ]
+            }
+        }]
+
+    });
+
+
+</script>
+
+</body>
+</html>
